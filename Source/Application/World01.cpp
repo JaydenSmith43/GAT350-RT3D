@@ -37,56 +37,67 @@ namespace nc
     {
         // pre-render
         renderer.BeginFrame();
-        for (int i = 0; i < 10; i++)
-        {
-            // render
-            glPushMatrix();
-            glTranslatef(m_position.x, m_position.y, 0);
+        
+        // render
+        glPushMatrix();
+        glTranslatef(m_position.x, m_position.y, 0);
             
-            glRotatef(m_angle, 0, 0, 1);
-            //glRotatef(m_angle, 0, 1, 0);
-            //glScalef((sin(m_time * 5) + 1) * 0.5f, 1, 1);
-            glScalef(1, 1, 1);
+        glRotatef(m_angle, 0, 0, 1);
+        //glRotatef(m_angle, 0, 1, 0);
+        //glScalef((sin(m_time * 5) + 1) * 0.5f, 1, 1);
+        glScalef(1, 1, 1);
 
-            glBegin(GL_TRIANGLES);
+        glBegin(GL_TRIANGLES);
 
-            glColor3f(1, 0, 0);
-            glVertex2f(-0.5f, -0.5f);
+        glColor3f(1, 0, 0);
+        glVertex2f(-0.5f, -0.5f);
 
-            glColor3f(0, 1, 0);
-            glVertex2f(0, 0.5f);
+        glColor3f(0, 1, 0);
+        glVertex2f(0, 0.5f);
 
-            glColor3f(0, 0, 1);
-            glVertex2f(0.5f, -0.5f);
+        glColor3f(0, 0, 1);
+        glVertex2f(0.5f, -0.5f);
 
-            glEnd();
-            glPopMatrix();
+        glEnd();
+        glPopMatrix();
+
+        // ship
+        glPushMatrix();
+        glTranslatef((sin(m_time * 5)), 0.5f, 0);
+        glScalef((sin(m_time * 5) + 1) / 2, 1, 1);
+        glRotatef(m_time * 360, 0, 0, 1);
+
+        glBegin(GL_QUAD_STRIP);
+
+        glColor3f(1, sin(m_time), 0);
+        glVertex2f(-1.0f, -0.45f);
+
+        glColor3f(1, sin(m_time), 0);
+        glVertex2f(-1.0f, -0.35f);
+
+        glColor3f(1, sin(m_time), 0);
+        glVertex2f(-0.8f, -0.5f);
+
+        glColor3f(1, sin(m_time), 0);
+        glVertex2f(-0.8f, -0.2f);
+
+        glColor3f(sin(m_time), 1, 0);
+        glVertex2f(-0.2f, -0.5f);
+
+        glColor3f(sin(m_time), 1, 0);
+        glVertex2f(-0.2f, -0.2f);
 
 
-            glPushMatrix();
-            glTranslatef((sin(m_time * 5)), m_position.y, 0);
-            glScalef((sin(m_time * 5) + 2) / 2, 1, 1);
 
-            glBegin(GL_QUADS);
+        glColor3f(1, sin(m_time), 0);
+        glVertex2f(0.4f, -0.8f);
 
-            glColor3f(1, sin(m_time), 0);
-            glVertex2f(-0.8f, -0.5f);
+        glColor3f(1, sin(m_time), 0);
+        glVertex2f(0.4f, 0.1f);
 
-            glColor3f(1, sin(m_time), 0);
-            glVertex2f(-0.8, -0.2f);
+        glEnd();
 
-            glColor3f(sin(m_time), 1, 0);
-            glVertex2f(-0.2f, -0.2f);
-
-            glColor3f(sin(m_time), 1, 0);
-            glVertex2f(-0.2f, -0.5f);
-
-            glEnd();
-
-            glPopMatrix();
-        }
-
-
+        glPopMatrix();
 
         // post-render
         renderer.EndFrame();
