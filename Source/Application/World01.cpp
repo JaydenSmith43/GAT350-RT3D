@@ -41,7 +41,7 @@ namespace nc
         // render
         glPushMatrix();
         glTranslatef(m_position.x, m_position.y, 0);
-            
+
         glRotatef(m_angle, 0, 0, 1);
         //glRotatef(m_angle, 0, 1, 0);
         //glScalef((sin(m_time * 5) + 1) * 0.5f, 1, 1);
@@ -98,7 +98,7 @@ namespace nc
         glEnd();
 
         glPopMatrix();
-
+        
         // post-render
         renderer.EndFrame();
     }
