@@ -1,0 +1,12 @@
+{
+  "program":"shaders/unlit_multi_texture.prog",
+  "textures": [ "textures/llama.tga" , "textures/blue-wooden-chair.png" ],
+  "color":[
+      1,
+      0,
+      0,
+      1
+    ],
+  "tiling": [ 2, 2 ],
+  "offset": [ 0, 0 ]
+}

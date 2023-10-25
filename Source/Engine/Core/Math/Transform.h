@@ -3,6 +3,7 @@
 #include <glm/glm/glm.hpp>
 #include <glm/glm/gtx/transform.hpp>
 #include <glm/glm/gtx/euler_angles.hpp>
+#include <glm/glm/gtc/type_ptr.hpp>
 
 namespace nc
 {
@@ -31,6 +32,8 @@ namespace nc
 
 			return mx;
 		}
+
+		void ProcessGui();
 
 		void Read(const json_t& value);
 	};

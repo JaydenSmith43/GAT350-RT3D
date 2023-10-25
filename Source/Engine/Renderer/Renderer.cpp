@@ -46,13 +46,31 @@ namespace nc
 		glEnable(GL_DEBUG_OUTPUT);
 		glDebugMessageCallback(DebugCallback, 0);
 
+		// disable all messages with severity `GL_DEBUG_SEVERITY_NOTIFICATION`
+		glDebugMessageControl(
+			GL_DONT_CARE,
+			GL_DONT_CARE,
+			GL_DEBUG_SEVERITY_NOTIFICATION,
+			0, NULL,
+			GL_FALSE);
+
 		glViewport(0, 0, width, height);
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+		glEnable(GL_DEPTH_TEST);
+		glDepthFunc(GL_LESS); //draw pixels over pixels that are less than
+
+		//glEnable//gl_cull face
+		//glculldace glback
+		//glfront fce glw?
+
 	}
 
 	void Renderer::BeginFrame()
 	{
 		glClearColor(0, 0, 0, 1); //rgba
-		glClear(GL_COLOR_BUFFER_BIT);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //bitmasks
 	}
 
 	void Renderer::EndFrame()
