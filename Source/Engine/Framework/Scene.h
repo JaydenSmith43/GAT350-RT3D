@@ -28,10 +28,12 @@ namespace nc
 		T* GetActorByName(const std::string& name);
 
 		void SetGame(World* game) { m_game = game; }
+		void ProcessGui();
 
 		friend class Actor;
 
 	private:
+		glm::vec3 ambientColor{ 0.2f };
 		World* m_game = nullptr;
 		std::list<std::unique_ptr<Actor>> m_actors;
 	};

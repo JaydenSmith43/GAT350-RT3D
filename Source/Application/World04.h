@@ -6,26 +6,26 @@
 
 namespace nc
 {
-	struct light_t
-	{
-		enum eType
-		{
-			Point,
-			Directional,
-			Spot
-		};
-		eType type;
-		glm::vec3 position;
-		glm::vec3 direction;
-		glm::vec3 color;
-		float intensity;
-		float range;
-		float innerAngle;
-		float outerAngle;
-	};
-
 	class World04 : public World
 	{
+		struct light_t
+		{
+			enum eType
+			{
+				Point,
+				Directional,
+				Spot
+			};
+			eType type;
+			glm::vec3 position;
+			glm::vec3 direction;
+			glm::vec3 color;
+			float intensity;
+			float range;
+			float innerAngle;
+			float outerAngle;
+		};
+
 	public:
 		bool Initialize() override;
 		void Shutdown() override;

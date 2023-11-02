@@ -61,10 +61,9 @@ namespace nc
 		glEnable(GL_DEPTH_TEST);
 		glDepthFunc(GL_LESS); //draw pixels over pixels that are less than
 
-		//glEnable//gl_cull face
-		//glculldace glback
-		//glfront fce glw?
-
+		glEnable(GL_CULL_FACE);
+		glCullFace(GL_BACK);
+		glFrontFace(GL_CCW);
 	}
 
 	void Renderer::BeginFrame()
