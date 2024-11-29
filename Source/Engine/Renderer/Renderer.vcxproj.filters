@@ -64,6 +64,12 @@
     <ClCompile Include="Cubemap.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="Framebuffer.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ThirdParty\imgui\ImFileDialog.cpp">
+      <Filter>Source\Imgui</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Renderer.h">
@@ -95,6 +101,12 @@
     </ClInclude>
     <ClInclude Include="Cubemap.h">
       <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="Framebuffer.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ThirdParty\imgui\ImFileDialog.h">
+      <Filter>Source\Imgui</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -10,13 +10,11 @@ namespace nc
 	{
 		if (!modelName.empty())
 		{
-			model = std::make_shared<Model>();
-			model->Load(modelName);
-			//ADD_RESOURCE(modelName, model);
+			model = GET_RESOURCE(Model, modelName);
 		}
 		if (model && !materialName.empty())
 		{
-			model->SetMaterial(GET_RESOURCE(Material, materialName));
+			material = GET_RESOURCE(Material, materialName);
 		}
 
 		return true;
@@ -28,7 +26,6 @@ namespace nc
 
 	void ModelComponent::Draw(Renderer& renderer)
 	{
-		auto material = model->GetMaterial();
 		material->Bind();
 		material->GetProgram()->SetUniform("model", m_owner->transform.GetMatrix());
 		
@@ -38,16 +35,32 @@ namespace nc
 		model->Draw();
 	}
 
+	void ModelComponent::ProcessGui()
+	{
+		(model) ? ImGui::Text("Model: %s", model->name.c_str()) : ImGui::Text("None");
+		Gui::GetDialogResource<Model>(model, "ModelTextureDialog", "Open Model", "Model file (*.obj;*.fbx){.obj,.fbx},.*");
+
+		(material) ? ImGui::Text("Material: %s", material->name.c_str()) : ImGui::Text("None");
+		Gui::GetDialogResource<Material>(material, "MaterialTextureDialog", "Open Material", "Material file (*.mtrl){.mtrl},.*");
+
+		ImGui::Checkbox("Cast Shadow", &castShadow);
+		ImGui::Checkbox("Enable Depth", &enableDepth);
+	}
+
 	void ModelComponent::Read(const json_t& value)
 	{
 		READ_DATA(value, modelName);
 		READ_DATA(value, materialName); //made string in .h
 
 		READ_DATA(value, enableDepth);
+		READ_DATA(value, castShadow);
+
 		std::string cullfaceName;
 		if (READ_NAME_DATA(value, "cullface", cullfaceName))
 		{
 			if (StringUtils::IsEqualIgnoreCase(cullfaceName, "front")) cullface = GL_FRONT;
+			if (StringUtils::IsEqualIgnoreCase(cullfaceName, "back")) cullface = GL_BACK;
+			if (StringUtils::IsEqualIgnoreCase(cullfaceName, "front_and_back")) cullface = GL_FRONT_AND_BACK;
 		}
 		
 	}

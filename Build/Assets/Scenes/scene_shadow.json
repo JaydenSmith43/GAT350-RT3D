@@ -1,0 +1,157 @@
+{
+	"actors": [
+		{
+			"type": "Actor",
+			"name": "house",
+			"persistent": true,
+			"transform": {
+				"position": [ 0, -3.5, 2 ],
+				"scale": [ 0.1, 0.1, 0.1 ],
+				"rotation": [ 0, 0, 0 ]
+			},
+			"components": [
+				{
+					"type": "ModelComponent",
+					"modelName": "fantasy/obj/SF_Bld_Elven_House_01.obj",
+					"materialName": "fantasy/fantasy.mtrl",
+					"enableDepth": true
+				},
+				{
+					"type": "RotateComponent",
+					"rotation": [ 0, 10, 0 ]
+				}
+			]
+		},
+		{
+			"type": "Actor",
+			"name": "actor",
+			"persistent": true,
+			"transform": {
+				"position": [ 0, 0, 0 ],
+				"scale": [ 1, 1, 1 ],
+				"rotation": [ 0, 0, 0 ]
+			},
+			"components": [
+				{
+					"type": "ModelComponent",
+					"modelName": "models/ogre.obj",
+					"materialName": "materials/ogre.mtrl",
+					"enableDepth": true
+				},
+				{
+					"type": "RotateComponent",
+					"rotation": [ 0, 30, 0 ]
+				}
+			]
+		},
+		{
+			"type": "Actor",
+			"name": "tower",
+			"persistent": true,
+			"transform": {
+				"position": [ -3, -3, 2 ],
+				"scale": [ 0.1, 0.1, 0.1 ],
+				"rotation": [ 0, 0, 0 ]
+			},
+			"components": [
+				{
+					"type": "ModelComponent",
+					"modelName": "fantasy/obj/SF_Bld_Castle_TallTower_01.obj",
+					"materialName": "fantasy/fantasy.mtrl",
+					"enableDepth": true
+				},
+				{
+					"type": "RotateComponent",
+					"rotation": [ 0, 10, 0 ]
+				}
+			]
+		},
+		{
+			"type": "Actor",
+			"name": "ground",
+			"persistent": true,
+			"transform": {
+				"position": [ -20, -3, 20 ],
+				"scale": [ 5, 5, 5 ],
+				"rotation": [ 0, 0, 0 ]
+			},
+			"components": [
+				{
+					"type": "ModelComponent",
+					"modelName": "fantasy/obj/SF_Env_Tile_Grass_01.obj",
+					"materialName": "fantasy/fantasy.mtrl",
+					"enableDepth": true
+				}
+			]
+		},
+		{
+			"type": "Actor",
+			"name": "depth_debug",
+			"persistent": true,
+			"active": false,
+			"transform": {
+				"position": [ 2.4, 1.4, 0 ],
+				"scale": [ 1, 1, 1 ],
+				"rotation": [ 0, 0, 0 ]
+			},
+			"components": [
+				{
+					"type": "ModelComponent",
+					"modelName": "models/quad.obj",
+					"materialName": "materials/sprite.mtrl",
+					"enableDepth": true
+				}
+			]
+		},
+		{
+			"type": "Actor",
+			"name": "camera",
+			"persistent": true,
+			"transform": {
+				"position": [ 2, -2, 3 ],
+				"scale": [ 1, 1, 1 ],
+				"rotation": [ 0, 0, 0 ]
+			},
+			"components": [
+				{
+					"type": "CameraComponent",
+					"fov": 70,
+					"near": 0.1,
+					"far": 100
+				},
+				{
+					"type": "CameraController",
+					"speed": 5,
+					"sensitivity": 5
+				}
+			]
+		},
+		{
+			"type": "Actor",
+			"name": "light",
+			"persistent": true,
+			"transform": {
+				"position": [ 0, 3, 0 ],
+				"scale": [ 0.1, 0.1, 0.1 ],
+				"rotation": [ 90, 0, 0 ]
+			},
+			"components": [
+				{
+					"type": "LightComponent",
+					"lightTypeName": "directional",
+					"color": [ 1, 1, 1 ],
+					"intensity": 1,
+					"range": 20,
+					"innerAngle": 10,
+					"outerAngle": 30,
+					"castShadow": true
+				},
+				{
+					"type": "ModelComponent",
+					"modelName": "models/quad.obj",
+					"materialName": "materials/ui_light.mtrl"
+				}
+			]
+		}
+	]
+}

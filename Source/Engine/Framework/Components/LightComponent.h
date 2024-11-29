@@ -11,9 +11,11 @@ namespace nc
 
 		bool Initialize() override;
 		void Update(float dt) override;
-		void SetProgram(const res_t<Program> program, const std::string& name);
+		void SetProgram(const res_t<Program> program, const std::string& name, const glm::mat4& view);
 
 		void ProcessGui() override;
+
+		glm::mat4 GetShadowMatrix();
 
 	public:
 		enum eType
@@ -29,5 +31,9 @@ namespace nc
 		float range = 20;
 		float innerAngle = 20;
 		float outerAngle = 30;
+
+		bool castShadow = false;
+		float shadowSize = 10;
+		float shadowBias = 0.005f;
 	};
 }

@@ -14,5 +14,8 @@ namespace nc
 		static std::string ToLower(const std::string& str);
 		static bool IsEqualIgnoreCase(const std::string& str1, const std::string& str2);
 		static std::string CreateUnique(const std::string& str);
+
+		static int GetTrailingNumber(const std::string& str);
+		static std::string RemoveTrailingNumber(const std::string& str);
 	};
 }

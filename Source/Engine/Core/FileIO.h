@@ -10,6 +10,8 @@ namespace nc
 	bool setFilePath(const std::filesystem::path& path);
 	// Returns the filename excluding the path directories. (example: C:Project\Code\main.cpp -> main.cpp)
 	std::string getFileName(const std::filesystem::path& path);
+	
+	std::string getRelativePath(const std::filesystem::path& path);
 
 	// Returns (true/false) if a file exists.
 	bool fileExists(const std::filesystem::path& path);

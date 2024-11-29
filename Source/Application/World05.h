@@ -19,6 +19,7 @@ namespace nc
 		float m_time;
 		float m_speed = 10.0f;
 
-		glm::vec3 m_ambientColor{ 0.2f} ;
+		float m_refraction{ 1 };
+		glm::vec3 m_ambientColor{ 0.2f };
 	};
 }

@@ -7,6 +7,13 @@ namespace nc
 	class CameraComponent : public Component
 	{
 	public:
+		enum eProjectionType
+		{
+			Perspective,
+			Orthographic
+		};
+
+	public:
 		CLASS_DECLARATION(CameraComponent)
 
 		bool Initialize() override;
@@ -22,10 +29,12 @@ namespace nc
 		glm::mat4 projection{ 1 };
 		glm::mat4 view{ 1 };
 
-	private:
 		float fov = 70.0f;
 		float aspect = 0.0f;
 		float near = 0.1f;
 		float far = 100.0f;
+
+		eProjectionType projectionType = Perspective;
+		float size{ 8 };
 	};
 }
